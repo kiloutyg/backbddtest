@@ -5,8 +5,9 @@ include('zodiac.php');
 
 $firstName = !empty($_POST) ? $_POST['name'] : null;
 $lastName = !empty($_POST) ? $_POST['lastname'] : null;
-$password = $firstName . $lastName;
 $password = fillPassword($password);
+$password = str_shuffle($firstName) . str_shuffle($lastName);
+if (strlen($password) < 12) $password = fillPassword($password);
 $birthdate = !empty($_POST) ? $_POST['calendar'] : null;
 $zodiac = manageZodiacSign($birthdate);
 $complex_password = complexPassword($password);
