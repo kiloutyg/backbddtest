@@ -24,10 +24,6 @@
                 <label for="calendar">Date de naissance</label>
                 <input type="date" name="calendar" value="2023-04-05" />
             </div>
-            <div class="connect">
-                <label for="password">Mot de passe</label>
-                <input id="register-password" type="text" name="password" placeholder="Mot de passe">
-            </div>
             <button type="submit">Inscription</button>
         </div>
     </form>
