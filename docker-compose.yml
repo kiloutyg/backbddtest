@@ -1,0 +1,52 @@
+version: '3.8'
+services:
+  database:
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes :
+    - ./database_data:/var/lib/mysql
+    networks:
+      vpcbr:
+        ipv4_address : 172.20.0.2
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: database
+      PMA_USER: ${MYSQL_USER}
+      PMA_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8082:80"
+    networks:
+      vpcbr:
+        ipv4_address : 172.20.0.3
+    depends_on:
+      - database
+  web:
+    # image: kiloutyg/po:docauposteweb
+    build: .
+    # entrypoint: "./entrypoint.sh"
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8000:80"
+      - "9000:8000"
+      - "9080:8080"
+    depends_on :
+      - database
+    networks:
+      vpcbr:
+        ipv4_address : 172.20.0.4
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
