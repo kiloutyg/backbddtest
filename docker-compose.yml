@@ -28,12 +28,12 @@ services:
     depends_on:
       - database
   web:
-    # image: kiloutyg/po:docauposteweb
-    build: .
+    image: php:8.2-apache-bullseye
+    # build: .
     # entrypoint: "./entrypoint.sh"
     restart: unless-stopped
     volumes:
-      - ./:/var/www
+      - ./:/var/www/html
     ports:
       - "8000:80"
       - "9000:8000"
