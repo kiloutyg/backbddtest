@@ -5,7 +5,7 @@ function getConnexion()
     $host = 'localhost';
     $dbName = 'bddtest';
     $user = 'root';
-    $password = '';
+    $password = 'root';
     try {
         $db = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $user, $password);
     } catch (PDOException $e) {
