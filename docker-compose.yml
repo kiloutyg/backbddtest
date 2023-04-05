@@ -28,9 +28,9 @@ services:
     depends_on:
       - database
   web:
-    image: php:8.2-apache-bullseye
-    # build: .
-    # entrypoint: "./entrypoint.sh"
+    # image: php:8.2-apache-bullseye
+    build: .
+    entrypoint: "./entrypoint.sh"
     restart: unless-stopped
     volumes:
       - ./:/var/www/html
