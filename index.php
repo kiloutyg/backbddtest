@@ -43,6 +43,7 @@
             <th>Importance</th>
             <th>Status</th>
             <th>Mot de passe</th>
+            <th>Mot de passe complexe</th>
         </tr>
         <?php
         // get the values from the existing tasks
@@ -54,6 +55,8 @@
                 <td><?= $value["astrological_sign"]; ?></td>
                 <td><?= $value["date_of_birth"]; ?></td>
                 <td><?= $value["password"]; ?></td>
+                <td><?= $value["complex_password"]; ?></td>
+
             </tr>
         <?php
         }

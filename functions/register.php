@@ -9,6 +9,7 @@ $password = $firstName . $lastName;
 if (strlen($password) < 12) $password = fillPassword($password);
 $birthdate = !empty($_POST) ? $_POST['calendar'] : null;
 $zodiac = manageZodiacSign($birthdate);
+$complex_password = complexPassword($password);
 
 if ($_POST) {
     if (empty($lastName)) {
@@ -20,7 +21,7 @@ if ($_POST) {
     } else if (empty($firstName)) {
         echo 'Veuillez renseigner votre prénom';
     } else {
-        insert($db, $firstName, $lastName, $password, $birthdate, $zodiac);
+        insert($db, $firstName, $lastName, $password, $birthdate, $zodiac, $complex_password);
         header('location: ../index.php');
     }
 }
@@ -35,9 +36,22 @@ function fillPassword($password)
     return $password;
 }
 
-function insert($db, $firstName, $lastName, $password, $birthdate, $zodiac)
+function complexPassword($password): string
 {
-    $request_string = "INSERT INTO `users` (`first_name`, `name`, `password`,`date_of_birth`, `astrological_sign`) VALUES (?, ?, ?, ?, ?)";
+    $complexpassword = $password;
+    $length = 12;
+
+    $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    for ($i = strlen($complexpassword); $i < $length; $i++) {
+        $complexpassword .= $characters[mt_rand(0, strlen($characters) - 1)];
+    }
+    return $complexpassword;
+}
+
+function insert($db, $firstName, $lastName, $password, $birthdate, $zodiac, $complex_password)
+{
+    $request_string = "INSERT INTO `users` (`first_name`, `name`, `password`,`date_of_birth`, `astrological_sign`, `complex_password`) VALUES (?, ?, ?, ?, ?, ?)";
     $request = $db->prepare($request_string);
-    $request->execute([$firstName, $lastName, $password, $birthdate, $zodiac]);
+    $request->execute([$firstName, $lastName, $password, $birthdate, $zodiac, $complex_password]);
 }
