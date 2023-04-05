@@ -2,7 +2,7 @@
 $db = null;
 function getConnexion()
 {
-    $host = 'localhost';
+    $host = 'database';
     $dbName = 'bddtest';
     $user = 'testuser';
     $password = 'testpass';
