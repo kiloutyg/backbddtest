@@ -2,10 +2,10 @@
 $db = null;
 function getConnexion()
 {
-    $host = 'localhost';
+    $host = 'database';
     $dbName = 'bddtest';
-    $user = 'root';
-    $password = '';
+    $user = 'testuser';
+    $password = 'testpass';
     try {
         $db = new PDO("mysql:host=$host;dbname=$dbName;charset=utf8", $user, $password);
     } catch (PDOException $e) {
