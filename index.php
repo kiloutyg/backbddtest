@@ -13,12 +13,12 @@
         <div id="register-form">
             <h2>S'inscrire</h2>
             <div class="connect">
-                <label for="lastname">Nom de famille</label>
-                <input id="register-lastname" type="text" name="lastname" placeholder="Nom">
-            </div>
-            <div class="connect">
                 <label for="name">Prénom</label>
                 <input id="register-name" type="text" name="name" placeholder="Prénom">
+            </div>
+            <div class="connect">
+                <label for="lastname">Nom de famille</label>
+                <input id="register-lastname" type="text" name="lastname" placeholder="Nom">
             </div>
             <div>
                 <label for="calendar">Date de naissance</label>
@@ -27,5 +27,34 @@
             <button type="submit">Inscription</button>
         </div>
     </form>
+
+    <?php
+    include('functions/retrieveUsers.php');
+    // init the table with user's tasks
+    $results = find_users($db);
+    ?>
+    <table>
+        <tr>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Importance</th>
+            <th>Status</th>
+            <th>Mot de passe</th>
+        </tr>
+        <?php
+        // get the values from the existing tasks
+        foreach ($results as $value) {
+        ?>
+            <tr style="text-align:center">
+                <td><?= $value["name"]; ?></td>
+                <td><?= $value["first_name"]; ?></td>
+                <td><?= $value["astrological_sign"]; ?></td>
+                <td><?= $value["date_of_birth"]; ?></td>
+                <td><?= $value["password"]; ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
 
 </body>
