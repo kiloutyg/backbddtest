@@ -1,6 +1,5 @@
 FROM php:8.2-apache-bullseye
 
-# ENV http_proxy='http://10.0.0.1:80'
 RUN a2enmod rewrite
 RUN apt-get update -y \
   && apt-get install -y curl libxslt-dev libzip-dev git wget libmagickwand-dev --no-install-recommends \
@@ -17,8 +16,8 @@ RUN git config --global user.name "symfo"
 RUN git config --global --add safe.directory /var/www
 
 # set default vhost to target /symfony/app/public
-WORKDIR /var/www
-RUN sed -i -e "s/\/var\/www\/html/\/var\/www\/public/g" /etc/apache2/sites-available/000-default.conf
+WORKDIR /var/www/html
+# RUN sed -i -e "s/\/var\/www\/html/\/var\/www\/public/g" /etc/apache2/sites-available/000-default.conf
 
 # install nodejs 
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
@@ -36,5 +35,6 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/bin/composer && chmod +x /usr/bin/composer
 
 # install symfony cli
-RUN curl -sS https://get.symfony.com/cli/installer | bash \
-  && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+# RUN curl -sS https://get.symfony.com/cli/installer | bash \
+#   && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+

@@ -8,5 +8,4 @@ composer clear-cache
 
 # yarn encore production &
 
-exec apache2-foreground  &
-yarn watch
+exec apache2-foreground  
