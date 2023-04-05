@@ -9,7 +9,7 @@
     <title>Bdd test</title>
     </title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/starter-template/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
 </head>
 
 <body>
@@ -61,10 +61,21 @@
         ?>
     </table>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://threejs.org/examples/js/libs/stats.min.js"></script>      
-<style>
-  #particles-js{ --particle-background: #ccc;position:absolute; width: 100%; height: 100%; background-color: var(--particle-background); background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } 
-</style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    <style>
+        #particles-js {
+            --particle-background: #ccc;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--particle-background);
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    </style>
 
 
 </body>
