@@ -30,7 +30,7 @@ services:
   web:
     # image: php:8.2-apache-bullseye
     build: .
-    entrypoint: "./entrypoint.sh"
+    entrypoint: "./html/entrypoint.sh"
     restart: unless-stopped
     volumes:
       - ./:/var/www/html
