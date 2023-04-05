@@ -17,7 +17,7 @@ require 'user-creation.php'
 
     <form action="get" class="form-control">
         <input type="text" name="firstname" id="firstname">
-        <input type="text" name="lastname" id="lastname">
+        <input type="text" name="name" id="name">
     </form>
 </body>
 

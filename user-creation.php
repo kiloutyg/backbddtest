@@ -1,4 +1,6 @@
 <?php
+require_once('class/Class.php');
+
 // User information
 $name = "John";
 $firstName = "Doe";
