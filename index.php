@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="astrostyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bdd test</title>
     </title>
@@ -38,12 +39,11 @@
     ?>
     <table>
         <tr>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Importance</th>
-            <th>Status</th>
+            <th>Prénom</th>
+            <th>Nom</th>
             <th>Mot de passe</th>
-            <th>Mot de passe complexe</th>
+            <th>Signe astrologique</th>
+            <th>Date de naissance</th>
         </tr>
         <?php
         // get the values from the existing tasks
@@ -52,15 +52,30 @@
             <tr style="text-align:center">
                 <td><?= $value["name"]; ?></td>
                 <td><?= $value["first_name"]; ?></td>
+                <td><?= $value["password"]; ?></td>
                 <td><?= $value["astrological_sign"]; ?></td>
                 <td><?= $value["date_of_birth"]; ?></td>
-                <td><?= $value["password"]; ?></td>
-                <td><?= $value["complex_password"]; ?></td>
-
             </tr>
         <?php
         }
         ?>
     </table>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+    <style>
+        #particles-js {
+            --particle-background: #ccc;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--particle-background);
+            background-image: url("");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    </style>
+
 
 </body>
