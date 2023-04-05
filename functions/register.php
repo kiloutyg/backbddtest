@@ -13,6 +13,10 @@ $zodiac = manageZodiacSign($birthdate);
 if ($_POST) {
     if (empty($lastName)) {
         echo 'Veuillez renseigner votre nom';
+    } else if (preg_match('~[0-9]+~', $lastName)) {
+        echo 'Veuillez retirer les nombres de votre nom de famille';
+    } else if (preg_match('~[0-9]+~', $firstName)) {
+        echo 'Veuillez retirer les nombres de votre prénom';
     } else if (empty($firstName)) {
         echo 'Veuillez renseigner votre prénom';
     } else {
