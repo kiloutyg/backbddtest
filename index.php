@@ -8,14 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bdd test</title>
     </title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.1/examples/starter-template/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
 
-<body>
+    <div id="elements-container">
+        <!-- Generate 500 stars -->
+        <?php
+        for ($i = 0; $i < 500; $i++) {
+            // Randomly position the star
+            $x = rand(0, 100);
+            $y = rand(0, 100);
+
+            // Randomly delay the star's animation
+            $delay = rand(0, 60) / 10;
+
+            // Output the star element with inline style
+            echo "<div class='star' style='left: $x%; top: $y%; animation-delay: $delay" . "s'></div>";
+        }
+        ?>
+    </div>
+ </head>
+
+<body onload="movingRock()">
     <form id="registration" action="functions/register.php" method='post'>
         <div id="register-form">
-            <h2>S'inscrire</h2>
+            <h2 class="animated-text">S'inscrire</h2>
             <div class="connect">
                 <label for="name">Prénom</label>
                 <input id="register-name" type="text" name="name" placeholder="Prénom">
@@ -60,11 +75,31 @@
         }
         ?>
     </table>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script><script src="https://threejs.org/examples/js/libs/stats.min.js"></script>      
-<style>
-  #particles-js{ --particle-background: #ccc;position:absolute; width: 100%; height: 100%; background-color: var(--particle-background); background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } 
-</style>
-
-
 </body>
+<footer>
+    <a onclick="RRRRRh()">&#x1FAA8; </a>
+</footer>
+
+<script>
+function RRRRRh() {
+  var elements = document.querySelectorAll('table td:first-child');
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].innerHTML = "Pierre";
+  }
+}
+
+function movingRock() {
+    var element = document.querySelector('footer a');
+
+    // Génère une position de destination aléatoire sur la page
+    var destX = Math.floor(Math.random() * (window.innerWidth - element.offsetWidth));
+    var destY = Math.floor(Math.random() * (window.innerHeight - element.offsetHeight));
+
+    // Anime la transition de l'élément vers la position de destination
+    element.style.position = 'absolute';
+    element.style.left = destX + 'px';
+    element.style.top = destY + 'px';
+}
+
+</script>
