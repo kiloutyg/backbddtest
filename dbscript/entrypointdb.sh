@@ -1,5 +1,6 @@
 #!/bin/sh
-mariadb -u $MYSQL_USER -p $MYSQL_PASSWORD -e "
+# mariadb -u $MYSQL_USER -p $MYSQL_PASSWORD -e 
+mariadb -u $MYSQL_USER -p $MYSQL_PASSWORD $MYSQL_DATABASE -e "
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
