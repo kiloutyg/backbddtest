@@ -4,7 +4,7 @@ semaine avril
 Pour installation sur windows, avec wampserver:
 
 1 - Ajouter le projet dans le répertoire www de wamp
-2 - Créer dans votre bdd (de préférence PhpMyAdmin) avec le nom 'bddtest'
+2 - Créer dans votre bdd (de préférence MariaDB avec PhpMyAdmin) avec le nom 'bddtest'
 3 - Éxécuter ce script 
 
     SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
