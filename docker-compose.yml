@@ -12,7 +12,7 @@ services:
     volumes :
     - ./database_data:/var/lib/mysql
     # - ./dbscript:/var/lib/mysql/${MYSQL_DATABASE}
-    - ./sqlscript:/docker-entrypoint-initdb.d
+    # - ./sqlscript:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
     # networks:
@@ -35,7 +35,7 @@ services:
   web:
     # image: php:8.2-apache-bullseye
     build: .
-    entrypoint: "./entrypoint.sh"
+    # entrypoint: "./entrypoint.sh"
     restart: unless-stopped
     volumes:
       - ./:/var/www/html

@@ -4,16 +4,16 @@
 class mysqli
 {
     public  $servername;
-    public  $username;
+    public  $login;
     public  $password;
     public  $dbname;
 
-    public function __construct($servername, $username, $password, $dbname)
+    public function __construct($servername, $login, $password, $dbname)
     {
     }
 
     public function query($sql)
     {
-        $sql = "INSERT INTO users (name, first_name, date_of_birth, astrological_sign, password, complex_password) VALUES ('$name', '$firstName', '$dateOfBirth', '$astrologicalSign', '$password', '$complexPassword')";
+        $sql = "INSERT INTO users (login, password) VALUES ('$login', '$password')";
     }
 }
