@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <html>
 
 <head>
@@ -8,7 +15,8 @@
 <body>
     <?php
     var_dump($_COOKIE);
-    var_dump($_POST) ?>
+    var_dump($_POST);
+    var_dump($_SESSION) ?>
     <h4>Ajouter un livre</h4>
     <form action="function/addBook.php" method="post">
         <label for="title">Titre</label>

@@ -2,6 +2,8 @@
 
 include('database.php');
 
+session_start();
+
 $login = !empty($_POST) ? $_POST['login'] : null;
 $password = !empty($_POST) ? $_POST['password'] : null;
 
@@ -21,6 +23,8 @@ if ($_POST) {
         if ($user && password_verify($password, $user['password'])) {
             header('location: ../app/book.php');
             echo 'Vous êtes connecté FDP';
+            $_SESSION["loggedin"] = true;
+            $_SESSION["login"] = $_POST['login'];
         } else {
             echo 'Login ou mot de passe incorrect';
         }
