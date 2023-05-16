@@ -4,6 +4,7 @@ include('database.php');
 $title = !empty($_POST) ? $_POST['title'] : null;
 $author = !empty($_POST) ? $_POST['author'] : null;
 $book = !empty($_POST) ? $_POST['book'] : null;
+$path = null;
 
 
 if (!empty($book)) {
@@ -17,7 +18,7 @@ if ($_POST) {
     } else if (empty($book)) {
         echo 'Veuillez renseigner le livre';
     } else {
-        insert($db, $title, $author, $book);
+        insert($db, $title, $author, $path);
         header('location: ../index.php');
     }
 }
