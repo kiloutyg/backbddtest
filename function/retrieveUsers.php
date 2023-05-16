@@ -1,6 +1,6 @@
 <?php
 
-include('databse.php');
+include('database.php');
 
 function find_users($db)
 {
